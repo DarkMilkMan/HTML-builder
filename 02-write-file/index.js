@@ -18,12 +18,13 @@ rl.on('line', function (chunk) {
     if (exit == 'EXIT'){
         console.log('-----ВВОД ЗАВЕРШЁН-----');
         rl.pause();
-    }
-    fs.appendFile(newPath, chunk + '\n', function(error){
-        if (error){
-            throw error;
-        } 
-    });
+    } else {
+        fs.appendFile(newPath, chunk + '\n', function(error){
+            if (error){
+                throw error;
+            } 
+        });
+    }    
 })
 
 rl.on('SIGINT', () => {
